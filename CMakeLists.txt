@@ -10,3 +10,6 @@ target_link_libraries(imshow ${OpenCV_LIBS})
 
 add_executable(capture_video src/capture_video.cpp)
 target_link_libraries(capture_video ${OpenCV_LIBS})
+
+add_executable(gray src/gray.cpp)
+target_link_libraries(gray ${OpenCV_LIBS})
