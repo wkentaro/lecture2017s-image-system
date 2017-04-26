@@ -5,11 +5,12 @@ find_package(OpenCV REQUIRED)
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-add_executable(imshow src/imshow.cpp)
-target_link_libraries(imshow ${OpenCV_LIBS})
+macro(add_program filename executable)
+  add_executable(${executable} ${filename})
+  target_link_libraries(${executable} ${OpenCV_LIBS})
+endmacro(add_program)
 
-add_executable(capture_video src/capture_video.cpp)
-target_link_libraries(capture_video ${OpenCV_LIBS})
-
-add_executable(gray src/gray.cpp)
-target_link_libraries(gray ${OpenCV_LIBS})
+add_program(src/imshow.cpp imshow)
+add_program(src/capture_video.cpp capture_video)
+add_program(src/gray.cpp gray)
+add_program(src/add_scalor.cpp add_scalor)
